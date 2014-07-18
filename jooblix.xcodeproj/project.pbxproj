@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8451E9511979D2BE00D735BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9501979D2BE00D735BB /* Foundation.framework */; };
+		8451E9531979D2BE00D735BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9521979D2BE00D735BB /* CoreGraphics.framework */; };
+		8451E9551979D2BE00D735BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9541979D2BE00D735BB /* UIKit.framework */; };
+		8451E95B1979D2BE00D735BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9591979D2BE00D735BB /* InfoPlist.strings */; };
+		8451E95D1979D2BE00D735BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E95C1979D2BE00D735BB /* main.m */; };
+		8451E9611979D2BE00D735BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E9601979D2BE00D735BB /* AppDelegate.m */; };
+		8451E9641979D2BE00D735BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9621979D2BE00D735BB /* Main.storyboard */; };
+		8451E9671979D2BE00D735BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E9661979D2BE00D735BB /* ViewController.m */; };
+		8451E9691979D2BE00D735BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9681979D2BE00D735BB /* Images.xcassets */; };
+		8451E9701979D2BE00D735BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E96F1979D2BE00D735BB /* XCTest.framework */; };
+		8451E9711979D2BE00D735BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9501979D2BE00D735BB /* Foundation.framework */; };
+		8451E9721979D2BE00D735BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9541979D2BE00D735BB /* UIKit.framework */; };
+		8451E97A1979D2BE00D735BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9781979D2BE00D735BB /* InfoPlist.strings */; };
+		8451E97C1979D2BE00D735BB /* jooblixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E97B1979D2BE00D735BB /* jooblixTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8451E9731979D2BE00D735BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8451E9451979D2BE00D735BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8451E94C1979D2BE00D735BB;
+			remoteInfo = jooblix;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8451E94D1979D2BE00D735BB /* jooblix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jooblix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8451E9501979D2BE00D735BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8451E9521979D2BE00D735BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8451E9541979D2BE00D735BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8451E9581979D2BE00D735BB /* jooblix-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jooblix-Info.plist"; sourceTree = "<group>"; };
+		8451E95A1979D2BE00D735BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8451E95C1979D2BE00D735BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8451E95E1979D2BE00D735BB /* jooblix-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jooblix-Prefix.pch"; sourceTree = "<group>"; };
+		8451E95F1979D2BE00D735BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8451E9601979D2BE00D735BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8451E9631979D2BE00D735BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8451E9651979D2BE00D735BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8451E9661979D2BE00D735BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8451E9681979D2BE00D735BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8451E96E1979D2BE00D735BB /* jooblixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jooblixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8451E96F1979D2BE00D735BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8451E9771979D2BE00D735BB /* jooblixTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jooblixTests-Info.plist"; sourceTree = "<group>"; };
+		8451E9791979D2BE00D735BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8451E97B1979D2BE00D735BB /* jooblixTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jooblixTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8451E94A1979D2BE00D735BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8451E9531979D2BE00D735BB /* CoreGraphics.framework in Frameworks */,
+				8451E9551979D2BE00D735BB /* UIKit.framework in Frameworks */,
+				8451E9511979D2BE00D735BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8451E96B1979D2BE00D735BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8451E9701979D2BE00D735BB /* XCTest.framework in Frameworks */,
+				8451E9721979D2BE00D735BB /* UIKit.framework in Frameworks */,
+				8451E9711979D2BE00D735BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8451E9441979D2BE00D735BB = {
+			isa = PBXGroup;
+			children = (
+				8451E9561979D2BE00D735BB /* jooblix */,
+				8451E9751979D2BE00D735BB /* jooblixTests */,
+				8451E94F1979D2BE00D735BB /* Frameworks */,
+				8451E94E1979D2BE00D735BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8451E94E1979D2BE00D735BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8451E94D1979D2BE00D735BB /* jooblix.app */,
+				8451E96E1979D2BE00D735BB /* jooblixTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8451E94F1979D2BE00D735BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8451E9501979D2BE00D735BB /* Foundation.framework */,
+				8451E9521979D2BE00D735BB /* CoreGraphics.framework */,
+				8451E9541979D2BE00D735BB /* UIKit.framework */,
+				8451E96F1979D2BE00D735BB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8451E9561979D2BE00D735BB /* jooblix */ = {
+			isa = PBXGroup;
+			children = (
+				8451E95F1979D2BE00D735BB /* AppDelegate.h */,
+				8451E9601979D2BE00D735BB /* AppDelegate.m */,
+				8451E9621979D2BE00D735BB /* Main.storyboard */,
+				8451E9651979D2BE00D735BB /* ViewController.h */,
+				8451E9661979D2BE00D735BB /* ViewController.m */,
+				8451E9681979D2BE00D735BB /* Images.xcassets */,
+				8451E9571979D2BE00D735BB /* Supporting Files */,
+			);
+			path = jooblix;
+			sourceTree = "<group>";
+		};
+		8451E9571979D2BE00D735BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8451E9581979D2BE00D735BB /* jooblix-Info.plist */,
+				8451E9591979D2BE00D735BB /* InfoPlist.strings */,
+				8451E95C1979D2BE00D735BB /* main.m */,
+				8451E95E1979D2BE00D735BB /* jooblix-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8451E9751979D2BE00D735BB /* jooblixTests */ = {
+			isa = PBXGroup;
+			children = (
+				8451E97B1979D2BE00D735BB /* jooblixTests.m */,
+				8451E9761979D2BE00D735BB /* Supporting Files */,
+			);
+			path = jooblixTests;
+			sourceTree = "<group>";
+		};
+		8451E9761979D2BE00D735BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8451E9771979D2BE00D735BB /* jooblixTests-Info.plist */,
+				8451E9781979D2BE00D735BB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8451E94C1979D2BE00D735BB /* jooblix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8451E97F1979D2BE00D735BB /* Build configuration list for PBXNativeTarget "jooblix" */;
+			buildPhases = (
+				8451E9491979D2BE00D735BB /* Sources */,
+				8451E94A1979D2BE00D735BB /* Frameworks */,
+				8451E94B1979D2BE00D735BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = jooblix;
+			productName = jooblix;
+			productReference = 8451E94D1979D2BE00D735BB /* jooblix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8451E96D1979D2BE00D735BB /* jooblixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8451E9821979D2BE00D735BB /* Build configuration list for PBXNativeTarget "jooblixTests" */;
+			buildPhases = (
+				8451E96A1979D2BE00D735BB /* Sources */,
+				8451E96B1979D2BE00D735BB /* Frameworks */,
+				8451E96C1979D2BE00D735BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8451E9741979D2BE00D735BB /* PBXTargetDependency */,
+			);
+			name = jooblixTests;
+			productName = jooblixTests;
+			productReference = 8451E96E1979D2BE00D735BB /* jooblixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8451E9451979D2BE00D735BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = MaximeDavid;
+				TargetAttributes = {
+					8451E96D1979D2BE00D735BB = {
+						TestTargetID = 8451E94C1979D2BE00D735BB;
+					};
+				};
+			};
+			buildConfigurationList = 8451E9481979D2BE00D735BB /* Build configuration list for PBXProject "jooblix" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8451E9441979D2BE00D735BB;
+			productRefGroup = 8451E94E1979D2BE00D735BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8451E94C1979D2BE00D735BB /* jooblix */,
+				8451E96D1979D2BE00D735BB /* jooblixTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8451E94B1979D2BE00D735BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8451E9691979D2BE00D735BB /* Images.xcassets in Resources */,
+				8451E95B1979D2BE00D735BB /* InfoPlist.strings in Resources */,
+				8451E9641979D2BE00D735BB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8451E96C1979D2BE00D735BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8451E97A1979D2BE00D735BB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8451E9491979D2BE00D735BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8451E9671979D2BE00D735BB /* ViewController.m in Sources */,
+				8451E9611979D2BE00D735BB /* AppDelegate.m in Sources */,
+				8451E95D1979D2BE00D735BB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8451E96A1979D2BE00D735BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8451E97C1979D2BE00D735BB /* jooblixTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8451E9741979D2BE00D735BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8451E94C1979D2BE00D735BB /* jooblix */;
+			targetProxy = 8451E9731979D2BE00D735BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8451E9591979D2BE00D735BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8451E95A1979D2BE00D735BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8451E9621979D2BE00D735BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8451E9631979D2BE00D735BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8451E9781979D2BE00D735BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8451E9791979D2BE00D735BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8451E97D1979D2BE00D735BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8451E97E1979D2BE00D735BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8451E9801979D2BE00D735BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jooblix/jooblix-Prefix.pch";
+				INFOPLIST_FILE = "jooblix/jooblix-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8451E9811979D2BE00D735BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jooblix/jooblix-Prefix.pch";
+				INFOPLIST_FILE = "jooblix/jooblix-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8451E9831979D2BE00D735BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jooblix.app/jooblix";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jooblix/jooblix-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "jooblixTests/jooblixTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8451E9841979D2BE00D735BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jooblix.app/jooblix";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jooblix/jooblix-Prefix.pch";
+				INFOPLIST_FILE = "jooblixTests/jooblixTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8451E9481979D2BE00D735BB /* Build configuration list for PBXProject "jooblix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8451E97D1979D2BE00D735BB /* Debug */,
+				8451E97E1979D2BE00D735BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8451E97F1979D2BE00D735BB /* Build configuration list for PBXNativeTarget "jooblix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8451E9801979D2BE00D735BB /* Debug */,
+				8451E9811979D2BE00D735BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8451E9821979D2BE00D735BB /* Build configuration list for PBXNativeTarget "jooblixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8451E9831979D2BE00D735BB /* Debug */,
+				8451E9841979D2BE00D735BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8451E9451979D2BE00D735BB /* Project object */;
+}
