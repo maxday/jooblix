@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FetchProtocol.h"
 
 @interface DataUpdater : NSObject
-    + (void) sendUserToken;
-    + (void) setUUID;
-    + (void) refreshData:(NSManagedObjectContext*) managedObjectContext;
+
+    @property(nonatomic, weak) id fetchDelegate;
+
+    - (void) sendUserToken;
+    - (void) setUUID;
+    - (void) refreshData:(NSManagedObjectContext*) managedObjectContext;
+
 @end

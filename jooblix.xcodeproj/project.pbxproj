@@ -52,6 +52,7 @@
 		84303258197BC12C00E8FEF7 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		8430325A197BC12C00E8FEF7 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		8430325B197BC12C00E8FEF7 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		8430329E197BE60600E8FEF7 /* FetchProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchProtocol.h; sourceTree = "<group>"; };
 		8451E94D1979D2BE00D735BB /* jooblix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jooblix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8451E9501979D2BE00D735BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8451E9521979D2BE00D735BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +139,7 @@
 				8451E9601979D2BE00D735BB /* AppDelegate.m */,
 				8430323B197B893100E8FEF7 /* DataUpdater.h */,
 				8430323C197B893200E8FEF7 /* DataUpdater.m */,
+				8430329E197BE60600E8FEF7 /* FetchProtocol.h */,
 				8430323E197B9FF500E8FEF7 /* Constant.h */,
 				84303248197BBB7A00E8FEF7 /* Model.xcdatamodeld */,
 				8430325A197BC12C00E8FEF7 /* Group.h */,

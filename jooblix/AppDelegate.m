@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "DataUpdater.h"
 #import "Constant.h"
 
 @implementation AppDelegate
@@ -16,10 +15,12 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize dataUpdater;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [DataUpdater setUUID]; //setUUID if necessary
+    dataUpdater = [[DataUpdater alloc] init];
+    [dataUpdater setUUID]; //setUUID if necessary
     
 	// Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
@@ -30,6 +31,8 @@
     // Override point for customization after application launch.
     
     ViewController *main = [[ViewController alloc] init];
+    [main setDataUpdater:dataUpdater];
+    
     [main setManagedObjectContext:[self managedObjectContext]];
     UINavigationController *nav = [[UINavigationController alloc]  initWithRootViewController:main];
     self.window.rootViewController = nav;
@@ -79,7 +82,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
     
-    [DataUpdater sendUserToken]; //send token
+    [dataUpdater sendUserToken]; //send token
     
     
 }

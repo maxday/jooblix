@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataUpdater.h"
+#import "FetchProtocol.h"
 
-
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FetchProtocol>
 
 @property (nonatomic, retain) UITableView* mainTableView;
 @property (nonatomic, retain) UISegmentedControl* chooseView;
+@property (nonatomic, retain) DataUpdater* dataUpdater;
+@property (nonatomic, retain) UIBarButtonItem* refreshButton;
+
+@property (nonatomic, retain) NSArray* data;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+
 
 @end

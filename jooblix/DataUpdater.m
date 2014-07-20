@@ -14,7 +14,9 @@
 
 @implementation DataUpdater
 
-+ (void)sendUserToken {
+@synthesize fetchDelegate;
+
+- (void)sendUserToken {
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckToken]) {
         NSLog(@"Token already sent");
@@ -34,19 +36,19 @@
     
    }
 
-+ (void)saveToUserDefaults:(NSString*)key andBool:(NSNumber*) boolValue {
+- (void)saveToUserDefaults:(NSString*)key andBool:(NSNumber*) boolValue {
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults setObject:boolValue forKey:key];
     [standardUserDefaults synchronize];
 }
 
-+ (void)saveToUserDefaults:(NSString*)key andBString:(NSString*) stringValue {
+- (void)saveToUserDefaults:(NSString*)key andBString:(NSString*) stringValue {
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults setObject:stringValue forKey:key];
     [standardUserDefaults synchronize];
 }
 
-+ (void) setUUID {
+- (void) setUUID {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckToken]) {
         NSLog(@"UUID already generated sent");
         return;
@@ -59,8 +61,7 @@
 
 
 
-+ (void) refreshData:(NSManagedObjectContext*) managedObjectContext {
-    
+- (void) refreshData:(NSManagedObjectContext*) managedObjectContext {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"uuid" : [[NSUserDefaults standardUserDefaults] objectForKey:kUUID]};
@@ -73,20 +74,30 @@
         
         [self prepareGroup:[responseObject objectForKey:@"data"] andContext:managedObjectContext];
         
+        
+        
         NSError *error = nil;
         [managedObjectContext save:&error];
         if (error != nil) {
             NSLog(@"Core data error");
         }
-  
+        else {
+            NSLog(@"ok j'ai saved");
+            if([fetchDelegate respondsToSelector:@selector(fetchData)])
+                [fetchDelegate fetchData];
+        }
+        if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
+            [fetchDelegate reactivateRefresh];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
+            [fetchDelegate reactivateRefresh];
     }];
 }
 
 
-+ (void) prepareGroup:(NSArray*) array andContext:(NSManagedObjectContext*) managedObjectContext {
+- (void) prepareGroup:(NSArray*) array andContext:(NSManagedObjectContext*) managedObjectContext {
     
     [array enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
         
@@ -104,7 +115,7 @@
     
 }
 
-+ (NSSet*) contructSet:(NSSet*) set andContext:(NSManagedObjectContext*) managedObjectContext {
+- (NSSet*) contructSet:(NSSet*) set andContext:(NSManagedObjectContext*) managedObjectContext {
     
     NSMutableSet* contructionSet = [[NSMutableSet alloc] initWithCapacity:[set count]];
     
@@ -117,7 +128,7 @@
     return contructionSet;
 }
 
-+ (void) clear:(NSManagedObjectContext*) managedObjectContext {
+- (void) clear:(NSManagedObjectContext*) managedObjectContext {
     
     NSFetchRequest * fetchRequestGroup = [[NSFetchRequest alloc] init];
     [fetchRequestGroup setEntity:[NSEntityDescription entityForName:@"Group" inManagedObjectContext:managedObjectContext]];
@@ -132,7 +143,5 @@
     }];
     
 }
-
-
 
 @end

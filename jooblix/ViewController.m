@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "DataUpdater.h"
-
 
 @interface ViewController ()
 @end
@@ -18,10 +16,16 @@
 @synthesize mainTableView;
 @synthesize chooseView;
 @synthesize managedObjectContext;
+@synthesize data;
+@synthesize dataUpdater;
+@synthesize refreshButton;
+
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    dataUpdater.fetchDelegate = self;
     
     NSArray *itemArray = [NSArray arrayWithObjects: @"Liste", @"Group", nil];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
@@ -30,7 +34,7 @@
     segmentedControl.selectedSegmentIndex = 1;
     [self.view addSubview:segmentedControl];
     
-    UIBarButtonItem* refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction:)];
+    refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction:)];
     
     UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
 
@@ -60,6 +64,8 @@
     
 	[self.view setBackgroundColor:[UIColor colorWithRed:(247.0f/255) green:(247.0f/255) blue:(247.0f/255) alpha:1]];
     
+    [self fetchData];
+    
     [self.view addSubview:mainTableView];
     
 }
@@ -77,18 +83,22 @@
 }
 
 - (void) refreshAction:(id) sender {
-    [DataUpdater refreshData:managedObjectContext];
+    [refreshButton setEnabled:NO];
+    [dataUpdater refreshData:managedObjectContext];
 }
 
+-(void) reactivateRefresh {
+    [refreshButton setEnabled:YES];
+}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [data count];
 }
 
 
@@ -98,12 +108,25 @@
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
     }
-    [cell.textLabel setText:@"COUCOU"];
+    [cell.textLabel setText:[[data objectAtIndex:indexPath.row] name]];
     return cell;
  }
 
-- (void)didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void) fetchData {
+    NSFetchRequest * fetchRequestGroup = [[NSFetchRequest alloc] init];
+    [fetchRequestGroup setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:managedObjectContext]];
+    
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequestGroup setSortDescriptors:[NSArray arrayWithObject:sortByName]];
+
+    NSError * error = nil;
+    data = [managedObjectContext executeFetchRequest:fetchRequestGroup error:&error];
+    
+    [mainTableView reloadData];
 }
 
 @end
