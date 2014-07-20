@@ -7,4 +7,6 @@
 //
 
 #define kCheckToken @"isTokenSent"
+#define kUUID @"uuidValue"
+#define kToken @"token"
 

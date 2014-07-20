@@ -12,4 +12,5 @@
 
 @interface DataUpdater : NSObject
     + (void)sendUserToken;
+    + (void) setUUID;
 @end

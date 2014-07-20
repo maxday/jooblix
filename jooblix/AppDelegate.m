@@ -14,6 +14,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [DataUpdater setUUID]; //setUUID if necessary
+    
 	// Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
@@ -27,6 +30,7 @@
     self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
+
     
     return YES;
 
@@ -68,7 +72,7 @@
     token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
     token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
     
-    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"apnsToken"];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
     
     [DataUpdater sendUserToken]; //send token
     

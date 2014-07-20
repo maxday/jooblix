@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, retain) UITableView* mainTableView;
+@property (nonatomic, retain) UISegmentedControl* chooseView;
 @end

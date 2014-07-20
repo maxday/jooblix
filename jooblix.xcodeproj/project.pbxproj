@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		74FA786DA9A847B790175A7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C816870B4943619F1465B8 /* libPods.a */; };
 		8430323D197B893200E8FEF7 /* DataUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8430323C197B893200E8FEF7 /* DataUpdater.m */; };
+		84303245197BB72F00E8FEF7 /* eurof35.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84303244197BB72F00E8FEF7 /* eurof35.ttf */; };
 		8451E9511979D2BE00D735BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9501979D2BE00D735BB /* Foundation.framework */; };
 		8451E9531979D2BE00D735BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9521979D2BE00D735BB /* CoreGraphics.framework */; };
 		8451E9551979D2BE00D735BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9541979D2BE00D735BB /* UIKit.framework */; };
@@ -40,6 +41,7 @@
 		8430323B197B893100E8FEF7 /* DataUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUpdater.h; sourceTree = "<group>"; };
 		8430323C197B893200E8FEF7 /* DataUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUpdater.m; sourceTree = "<group>"; };
 		8430323E197B9FF500E8FEF7 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		84303244197BB72F00E8FEF7 /* eurof35.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = eurof35.ttf; sourceTree = "<group>"; };
 		8451E94D1979D2BE00D735BB /* jooblix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jooblix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8451E9501979D2BE00D735BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8451E9521979D2BE00D735BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,8 +125,8 @@
 				8451E95F1979D2BE00D735BB /* AppDelegate.h */,
 				8451E9601979D2BE00D735BB /* AppDelegate.m */,
 				8430323B197B893100E8FEF7 /* DataUpdater.h */,
-				8430323E197B9FF500E8FEF7 /* Constant.h */,
 				8430323C197B893200E8FEF7 /* DataUpdater.m */,
+				8430323E197B9FF500E8FEF7 /* Constant.h */,
 				8451E9651979D2BE00D735BB /* ViewController.h */,
 				8451E9661979D2BE00D735BB /* ViewController.m */,
 				8451E9681979D2BE00D735BB /* Images.xcassets */,
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				8451E9581979D2BE00D735BB /* jooblix-Info.plist */,
+				84303244197BB72F00E8FEF7 /* eurof35.ttf */,
 				8451E9591979D2BE00D735BB /* InfoPlist.strings */,
 				8451E95C1979D2BE00D735BB /* main.m */,
 				8451E95E1979D2BE00D735BB /* jooblix-Prefix.pch */,
@@ -147,7 +150,6 @@
 		8451E9751979D2BE00D735BB /* jooblixTests */ = {
 			isa = PBXGroup;
 			children = (
-				8451E97B1979D2BE00D735BB /* jooblixTests.m */,
 				8451E9761979D2BE00D735BB /* Supporting Files */,
 			);
 			path = jooblixTests;
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				8451E9771979D2BE00D735BB /* jooblixTests-Info.plist */,
+				8451E97B1979D2BE00D735BB /* jooblixTests.m */,
 				8451E9781979D2BE00D735BB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -243,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84303245197BB72F00E8FEF7 /* eurof35.ttf in Resources */,
 				8451E9691979D2BE00D735BB /* Images.xcassets in Resources */,
 				8451E95B1979D2BE00D735BB /* InfoPlist.strings in Resources */,
 			);

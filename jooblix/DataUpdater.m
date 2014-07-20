@@ -15,12 +15,12 @@
 + (void)sendUserToken {
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckToken]) {
-        NSLog(@"Already sent");
+        NSLog(@"Token already sent");
         return;
     }
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"token": [[NSUserDefaults standardUserDefaults] objectForKey:@"apnsToken"]};
+    NSDictionary *parameters = @{@"token": [[NSUserDefaults standardUserDefaults] objectForKey:kToken], @"uuid" : [[NSUserDefaults standardUserDefaults] objectForKey:kUUID]};
     
     [manager POST:ServerApiURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self saveToUserDefaults:kCheckToken andBool:[NSNumber numberWithBool:YES]];
@@ -36,6 +36,23 @@
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults setObject:boolValue forKey:key];
     [standardUserDefaults synchronize];
+}
+
++ (void)saveToUserDefaults:(NSString*)key andBString:(NSString*) stringValue {
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    [standardUserDefaults setObject:stringValue forKey:key];
+    [standardUserDefaults synchronize];
+}
+
++ (void) setUUID {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckToken]) {
+        NSLog(@"UUID already generated sent");
+        return;
+    }
+    CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
+    NSString* generatedUUID = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
+    [self saveToUserDefaults:kUUID andBString:generatedUUID];
+    NSLog(@"%@", generatedUUID);
 }
 
 @end
