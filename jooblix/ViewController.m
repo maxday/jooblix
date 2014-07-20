@@ -99,12 +99,12 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
+
+
 
     
     
 }
-
 - (void) changeViewAction:(UISegmentedControl *) segment {
     if (segment.selectedSegmentIndex == 0) {
         NSLog(@"zero");
@@ -161,6 +161,9 @@
     NSError * error = nil;
     data = [managedObjectContext executeFetchRequest:fetchRequestGroup error:&error];
     
+    [self dismissKeyboard];
+    isFiltered = NO;
+    
     [mainTableView reloadData];
 }
 
@@ -194,9 +197,14 @@
 
 
 - (void) dismissKeyboard {
+    self.aSearchBar.text = @"";
     [self.aSearchBar resignFirstResponder];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [mainTableView setContentOffset:CGPointMake(0, 44)];
+}
 
 
 @end
