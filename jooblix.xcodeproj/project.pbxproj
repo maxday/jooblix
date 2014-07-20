@@ -13,7 +13,6 @@
 		8451E95B1979D2BE00D735BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9591979D2BE00D735BB /* InfoPlist.strings */; };
 		8451E95D1979D2BE00D735BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E95C1979D2BE00D735BB /* main.m */; };
 		8451E9611979D2BE00D735BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E9601979D2BE00D735BB /* AppDelegate.m */; };
-		8451E9641979D2BE00D735BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9621979D2BE00D735BB /* Main.storyboard */; };
 		8451E9671979D2BE00D735BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E9661979D2BE00D735BB /* ViewController.m */; };
 		8451E9691979D2BE00D735BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9681979D2BE00D735BB /* Images.xcassets */; };
 		8451E9701979D2BE00D735BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E96F1979D2BE00D735BB /* XCTest.framework */; };
@@ -44,7 +43,6 @@
 		8451E95E1979D2BE00D735BB /* jooblix-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jooblix-Prefix.pch"; sourceTree = "<group>"; };
 		8451E95F1979D2BE00D735BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8451E9601979D2BE00D735BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8451E9631979D2BE00D735BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8451E9651979D2BE00D735BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8451E9661979D2BE00D735BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8451E9681979D2BE00D735BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 			children = (
 				8451E95F1979D2BE00D735BB /* AppDelegate.h */,
 				8451E9601979D2BE00D735BB /* AppDelegate.m */,
-				8451E9621979D2BE00D735BB /* Main.storyboard */,
 				8451E9651979D2BE00D735BB /* ViewController.h */,
 				8451E9661979D2BE00D735BB /* ViewController.m */,
 				8451E9681979D2BE00D735BB /* Images.xcassets */,
@@ -199,6 +196,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = MaximeDavid;
 				TargetAttributes = {
+					8451E94C1979D2BE00D735BB = {
+						DevelopmentTeam = 9XPVZ74VK6;
+					};
 					8451E96D1979D2BE00D735BB = {
 						TestTargetID = 8451E94C1979D2BE00D735BB;
 					};
@@ -230,7 +230,6 @@
 			files = (
 				8451E9691979D2BE00D735BB /* Images.xcassets in Resources */,
 				8451E95B1979D2BE00D735BB /* InfoPlist.strings in Resources */,
-				8451E9641979D2BE00D735BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,14 +279,6 @@
 				8451E95A1979D2BE00D735BB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8451E9621979D2BE00D735BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8451E9631979D2BE00D735BB /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		8451E9781979D2BE00D735BB /* InfoPlist.strings */ = {
@@ -376,10 +367,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jooblix/jooblix-Prefix.pch";
 				INFOPLIST_FILE = "jooblix/jooblix-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,10 +383,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "jooblix/jooblix-Prefix.pch";
 				INFOPLIST_FILE = "jooblix/jooblix-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -456,6 +453,7 @@
 				8451E9811979D2BE00D735BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8451E9821979D2BE00D735BB /* Build configuration list for PBXNativeTarget "jooblixTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +462,7 @@
 				8451E9841979D2BE00D735BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
