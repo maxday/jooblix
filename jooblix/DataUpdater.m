@@ -126,10 +126,10 @@
     NSError * error = nil;
     NSArray * group = [managedObjectContext executeFetchRequest:fetchRequestGroup error:&error];
 
-
-    for (NSManagedObject * singleGroup in group) {
+    
+    [group enumerateObjectsUsingBlock:^(id singleGroup, NSUInteger idx, BOOL *stop) {
         [managedObjectContext deleteObject:singleGroup];
-    }
+    }];
     
 }
 

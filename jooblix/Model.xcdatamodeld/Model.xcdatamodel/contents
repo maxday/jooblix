@@ -5,7 +5,7 @@
         <attribute name="groupId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="taskList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="groupId" inverseEntity="Task" syncable="YES"/>
+        <relationship name="taskList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Task" inverseName="groupId" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
