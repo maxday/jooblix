@@ -30,6 +30,7 @@
     // Override point for customization after application launch.
     
     ViewController *main = [[ViewController alloc] init];
+    [main setManagedObjectContext:[self managedObjectContext]];
     UINavigationController *nav = [[UINavigationController alloc]  initWithRootViewController:main];
     self.window.rootViewController = nav;
     
@@ -127,7 +128,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModelName" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }

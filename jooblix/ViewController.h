@@ -13,4 +13,7 @@
 
 @property (nonatomic, retain) UITableView* mainTableView;
 @property (nonatomic, retain) UISegmentedControl* chooseView;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define ServerApiURL @"http://maxday.fr/jooblix/register.php"
-
 @interface DataUpdater : NSObject
-    + (void)sendUserToken;
+    + (void) sendUserToken;
     + (void) setUUID;
+    + (void) refreshData:(NSManagedObjectContext*) managedObjectContext;
 @end

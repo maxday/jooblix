@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DataUpdater.h"
 
 
 @interface ViewController ()
@@ -16,6 +17,7 @@
 
 @synthesize mainTableView;
 @synthesize chooseView;
+@synthesize managedObjectContext;
 
 - (void)viewDidLoad {
     
@@ -75,7 +77,7 @@
 }
 
 - (void) refreshAction:(id) sender {
-    NSLog(@"ddddd-dj-REFRESH");
+    [DataUpdater refreshData:managedObjectContext];
 }
 
 

@@ -12,6 +12,8 @@
 		84303245197BB72F00E8FEF7 /* eurof35.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84303244197BB72F00E8FEF7 /* eurof35.ttf */; };
 		84303247197BBB5500E8FEF7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84303246197BBB5500E8FEF7 /* CoreData.framework */; };
 		8430324A197BBB7A00E8FEF7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84303248197BBB7A00E8FEF7 /* Model.xcdatamodeld */; };
+		84303259197BC12C00E8FEF7 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 84303258197BC12C00E8FEF7 /* Task.m */; };
+		8430325C197BC12C00E8FEF7 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 8430325B197BC12C00E8FEF7 /* Group.m */; };
 		8451E9511979D2BE00D735BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9501979D2BE00D735BB /* Foundation.framework */; };
 		8451E9531979D2BE00D735BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9521979D2BE00D735BB /* CoreGraphics.framework */; };
 		8451E9551979D2BE00D735BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9541979D2BE00D735BB /* UIKit.framework */; };
@@ -46,6 +48,10 @@
 		84303244197BB72F00E8FEF7 /* eurof35.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = eurof35.ttf; sourceTree = "<group>"; };
 		84303246197BBB5500E8FEF7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		84303249197BBB7A00E8FEF7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		84303257197BC12C00E8FEF7 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		84303258197BC12C00E8FEF7 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		8430325A197BC12C00E8FEF7 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		8430325B197BC12C00E8FEF7 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		8451E94D1979D2BE00D735BB /* jooblix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jooblix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8451E9501979D2BE00D735BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8451E9521979D2BE00D735BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +140,10 @@
 				8430323C197B893200E8FEF7 /* DataUpdater.m */,
 				8430323E197B9FF500E8FEF7 /* Constant.h */,
 				84303248197BBB7A00E8FEF7 /* Model.xcdatamodeld */,
+				8430325A197BC12C00E8FEF7 /* Group.h */,
+				8430325B197BC12C00E8FEF7 /* Group.m */,
+				84303257197BC12C00E8FEF7 /* Task.h */,
+				84303258197BC12C00E8FEF7 /* Task.m */,
 				8451E9651979D2BE00D735BB /* ViewController.h */,
 				8451E9661979D2BE00D735BB /* ViewController.m */,
 				8451E9681979D2BE00D735BB /* Images.xcassets */,
@@ -307,7 +317,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84303259197BC12C00E8FEF7 /* Task.m in Sources */,
 				8451E9671979D2BE00D735BB /* ViewController.m in Sources */,
+				8430325C197BC12C00E8FEF7 /* Group.m in Sources */,
 				8451E9611979D2BE00D735BB /* AppDelegate.m in Sources */,
 				8430324A197BBB7A00E8FEF7 /* Model.xcdatamodeld in Sources */,
 				8451E95D1979D2BE00D735BB /* main.m in Sources */,

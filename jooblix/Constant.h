@@ -10,3 +10,6 @@
 #define kUUID @"uuidValue"
 #define kToken @"token"
 
+#define ServerApiURL @"http://maxday.fr/jooblix/register.php"
+#define RefreshApiURL @"http://maxday.fr/jooblix/try.php"
+
