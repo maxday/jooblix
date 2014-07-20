@@ -18,6 +18,7 @@
 @property (nonatomic, retain) UIBarButtonItem* refreshButton;
 @property (nonatomic, retain) NSMutableArray* searchData;
 @property (nonatomic, retain) NSArray* data;
+@property (nonatomic, retain) UISearchBar *aSearchBar;
 @property (readwrite) BOOL isFiltered;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

@@ -22,6 +22,7 @@
 @synthesize refreshButton;
 @synthesize searchData;
 @synthesize isFiltered;
+@synthesize aSearchBar;
 
 
 - (void)viewDidLoad {
@@ -81,19 +82,23 @@
     
 
     
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    searchBar.delegate = self;
+    aSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    aSearchBar.delegate = self;
     
-    mainTableView.tableHeaderView = searchBar;
+    mainTableView.tableHeaderView = aSearchBar;
     
-    UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:aSearchBar contentsController:self];
     searchController.searchResultsDataSource = self;
     searchController.searchResultsDelegate = self;
     searchController.delegate = self;
     
     
   
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
     
+    [self.view addGestureRecognizer:tap];
     
 
     
@@ -188,7 +193,9 @@
 }
 
 
-
+- (void) dismissKeyboard {
+    [self.aSearchBar resignFirstResponder];
+}
 
 
 
