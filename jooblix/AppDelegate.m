@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "DataUpdater.h"
+#import "Constant.h"
 
 @implementation AppDelegate
 
@@ -59,7 +61,18 @@
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-	NSLog(@"My token is: %@", deviceToken);
+
+    NSString * token = [NSString stringWithFormat:@"%@", deviceToken];
+
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"apnsToken"];
+    
+    [DataUpdater sendUserToken]; //send token
+    
+    
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
