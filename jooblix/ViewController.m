@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Task.h"
 
 @interface ViewController ()
 @end
@@ -19,11 +20,15 @@
 @synthesize data;
 @synthesize dataUpdater;
 @synthesize refreshButton;
+@synthesize searchData;
+@synthesize isFiltered;
 
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    searchData = [[NSMutableArray alloc] init];
     
     dataUpdater.fetchDelegate = self;
     
@@ -43,6 +48,11 @@
     self.navigationItem.rightBarButtonItem = addButton;
     
     
+    
+    
+    CGFloat verticalOffset = 3;
+    
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
     
     UIFont *customFont = [UIFont fontWithName:@"Eurofurencelight" size:40];
     
@@ -67,6 +77,26 @@
     [self fetchData];
     
     [self.view addSubview:mainTableView];
+    
+    
+
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    searchBar.delegate = self;
+    
+    mainTableView.tableHeaderView = searchBar;
+    
+    UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    searchController.searchResultsDataSource = self;
+    searchController.searchResultsDelegate = self;
+    searchController.delegate = self;
+    
+    
+  
+    
+    
+
+    
     
 }
 
@@ -98,7 +128,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [data count];
+    return isFiltered ? searchData.count : data.count;
 }
 
 
@@ -108,7 +138,7 @@
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
     }
-    [cell.textLabel setText:[[data objectAtIndex:indexPath.row] name]];
+    cell.textLabel.text = isFiltered ? [[searchData objectAtIndex:indexPath.row] name] : [[data objectAtIndex:indexPath.row] name];
     return cell;
  }
 
@@ -128,5 +158,38 @@
     
     [mainTableView reloadData];
 }
+
+#pragma mark - SearchBar Delegate -
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if (searchText.length == 0)
+        isFiltered = NO;
+    else
+        isFiltered = YES;
+    
+    NSMutableArray *tmpSearched = [[NSMutableArray alloc] init];
+    
+    for (Task *task in data) {
+        
+        //we are going for case insensitive search here
+        NSRange range = [[task name] rangeOfString:searchText
+                                      options:NSCaseInsensitiveSearch];
+        
+        if (range.location != NSNotFound)
+            [tmpSearched addObject:task];
+    }
+    
+    searchData = tmpSearched.copy;
+    
+    [self.mainTableView reloadData];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSLog(@"searchBar button clicked");
+}
+
+
+
+
+
 
 @end

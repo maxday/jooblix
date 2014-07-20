@@ -10,14 +10,15 @@
 #import "DataUpdater.h"
 #import "FetchProtocol.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FetchProtocol>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FetchProtocol, UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (nonatomic, retain) UITableView* mainTableView;
 @property (nonatomic, retain) UISegmentedControl* chooseView;
 @property (nonatomic, retain) DataUpdater* dataUpdater;
 @property (nonatomic, retain) UIBarButtonItem* refreshButton;
-
+@property (nonatomic, retain) NSMutableArray* searchData;
 @property (nonatomic, retain) NSArray* data;
+@property (readwrite) BOOL isFiltered;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
