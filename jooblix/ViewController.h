@@ -21,7 +21,10 @@
 @property (nonatomic, retain) UISearchBar *aSearchBar;
 @property (readwrite) BOOL isFiltered;
 
+@property (nonatomic, retain) UITapGestureRecognizer *tap;
+
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) UISegmentedControl *segmentedControl;
 
 
 

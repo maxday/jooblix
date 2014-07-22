@@ -36,6 +36,29 @@
     
    }
 
+
+- (void)sendUserUUID {
+    
+    [self saveToUserDefaults:kCheckUUID andBool:[NSNumber numberWithBool:NO]];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckUUID]) {
+        NSLog(@"UUID already sent");
+        return;
+    }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"token": @"", @"uuid" : [[NSUserDefaults standardUserDefaults] objectForKey:kUUID]};
+    
+    [manager POST:ServerApiURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self saveToUserDefaults:kCheckUUID andBool:[NSNumber numberWithBool:YES]];
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self saveToUserDefaults:kCheckUUID andBool:[NSNumber numberWithBool:NO]];
+        NSLog(@"Error: %@", error);
+    }];
+    
+}
+
 - (void)saveToUserDefaults:(NSString*)key andBool:(NSNumber*) boolValue {
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults setObject:boolValue forKey:key];
@@ -50,7 +73,7 @@
 
 - (void) setUUID {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckToken]) {
-        NSLog(@"UUID already generated sent");
+        NSLog(@"UUID already generated");
         return;
     }
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
@@ -71,7 +94,8 @@
     
     [manager GET:RefreshApiURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        
+        NSLog(@"%@", parameters);
+        NSLog(@"%@", responseObject);
         [self prepareGroup:[responseObject objectForKey:@"data"] andContext:managedObjectContext];
         
         
@@ -142,6 +166,21 @@
         [managedObjectContext deleteObject:singleGroup];
     }];
     
+}
+
+- (void) joinGroup:(NSNumber*) groupId {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"uuid" : [[NSUserDefaults standardUserDefaults] objectForKey:kUUID],
+                                 @"groupId" : groupId};
+    
+    NSLog(@"%@", parameters);
+    
+    [manager POST:JoinGroupApiURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
 }
 
 @end

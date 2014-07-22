@@ -23,84 +23,85 @@
 @synthesize searchData;
 @synthesize isFiltered;
 @synthesize aSearchBar;
+@synthesize tap;
+@synthesize segmentedControl;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        searchData = [[NSMutableArray alloc] init];
+        dataUpdater.fetchDelegate = self;
+        
+        NSArray *itemArray = [NSArray arrayWithObjects: @"Liste", @"Group", nil];
+        segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+        segmentedControl.frame = CGRectMake(60, 74, 200, 20);
+        [segmentedControl addTarget:self action:@selector(changeViewAction:) forControlEvents: UIControlEventValueChanged];
+        segmentedControl.selectedSegmentIndex = 1;
+        
+        refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction:)];
+        
+        UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
+        
+        self.navigationItem.leftBarButtonItem = refreshButton;
+        self.navigationItem.rightBarButtonItem = addButton;
+        
+        
+        CGFloat verticalOffset = 3;
+        
+        [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
+        
+        UIFont *customFont = [UIFont fontWithName:@"Eurofurencelight" size:40];
+        
+        NSDictionary * navBarTitleTextAttributes =
+        @{NSForegroundColorAttributeName : [UIColor blackColor],
+          NSFontAttributeName            : customFont };
+        
+        [[UINavigationBar appearance] setTitleTextAttributes:navBarTitleTextAttributes];
+        
+        self.navigationController.navigationBar.topItem.title = @"jooblix";
+        
+        mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 104, 320, 500)  style:UITableViewStylePlain];
+        mainTableView.delegate = self;
+        mainTableView.dataSource = self;
+
+        
+        aSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+        aSearchBar.delegate = self;
+        
+        mainTableView.tableHeaderView = aSearchBar;
+        
+        UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:aSearchBar contentsController:self];
+        searchController.searchResultsDataSource = self;
+        searchController.searchResultsDelegate = self;
+        searchController.delegate = self;
+        
+        
+        
+        tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(dismissKeyboard)];
+        
+        
+
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    searchData = [[NSMutableArray alloc] init];
-    
-    dataUpdater.fetchDelegate = self;
-    
-    NSArray *itemArray = [NSArray arrayWithObjects: @"Liste", @"Group", nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-    segmentedControl.frame = CGRectMake(60, 74, 200, 20);
-    [segmentedControl addTarget:self action:@selector(changeViewAction:) forControlEvents: UIControlEventValueChanged];
-    segmentedControl.selectedSegmentIndex = 1;
     [self.view addSubview:segmentedControl];
     
-    refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction:)];
-    
-    UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
-
-   
-    self.navigationItem.leftBarButtonItem = refreshButton;
-    self.navigationItem.rightBarButtonItem = addButton;
-    
-    
-    
-    
-    CGFloat verticalOffset = 3;
-    
-    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
-    
-    UIFont *customFont = [UIFont fontWithName:@"Eurofurencelight" size:40];
-    
-    NSDictionary * navBarTitleTextAttributes =
-    @{NSForegroundColorAttributeName : [UIColor blackColor],
-      NSFontAttributeName            : customFont };
-    
-    [[UINavigationBar appearance] setTitleTextAttributes:navBarTitleTextAttributes];
-    
-    self.navigationController.navigationBar.topItem.title = @"jooblix";
-    
-    mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 104, 320, 500)  style:UITableViewStylePlain];
-    mainTableView.delegate = self;
-    mainTableView.dataSource = self;
-    
-    
-    
-    
-    
-	[self.view setBackgroundColor:[UIColor colorWithRed:(247.0f/255) green:(247.0f/255) blue:(247.0f/255) alpha:1]];
     
     [self fetchData];
     
     [self.view addSubview:mainTableView];
-    
-    
 
-    
-    aSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    aSearchBar.delegate = self;
-    
-    mainTableView.tableHeaderView = aSearchBar;
-    
-    UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:aSearchBar contentsController:self];
-    searchController.searchResultsDataSource = self;
-    searchController.searchResultsDelegate = self;
-    searchController.delegate = self;
-    
-    
-  
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
     [self.view addGestureRecognizer:tap];
-
-
+    
+    [self.view setBackgroundColor:[UIColor colorWithRed:(247.0f/255) green:(247.0f/255) blue:(247.0f/255) alpha:1]];
 
     
     
@@ -115,6 +116,7 @@
 
 - (void) addAction:(id) sender {
      NSLog(@"ADD");
+    [dataUpdater joinGroup:[NSNumber numberWithInt:1]];
 }
 
 - (void) refreshAction:(id) sender {

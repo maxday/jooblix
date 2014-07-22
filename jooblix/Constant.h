@@ -7,9 +7,11 @@
 //
 
 #define kCheckToken @"isTokenSent"
+#define kCheckUUID @"isUUIDSent"
 #define kUUID @"uuidValue"
 #define kToken @"token"
 
 #define ServerApiURL @"http://maxday.fr/jooblix/register.php"
-#define RefreshApiURL @"http://maxday.fr/jooblix/try.php"
+#define RefreshApiURL @"http://maxday.fr/jooblix/refresh.php"
+#define JoinGroupApiURL @"http://maxday.fr/jooblix/join.php"
 

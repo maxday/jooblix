@@ -90,6 +90,7 @@
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+    [dataUpdater sendUserUUID];
 }
 
 - (void)saveContext

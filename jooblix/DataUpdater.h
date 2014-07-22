@@ -14,7 +14,9 @@
     @property(nonatomic, weak) id fetchDelegate;
 
     - (void) sendUserToken;
+    - (void)sendUserUUID;
     - (void) setUUID;
     - (void) refreshData:(NSManagedObjectContext*) managedObjectContext;
+    - (void) joinGroup:(NSNumber*) groupId;
 
 @end
