@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FetchProtocol.h"
+#import "NotifyProtocol.h"
 
 @interface DataUpdater : NSObject
 
-    @property(nonatomic, weak) id fetchDelegate;
+    @property(nonatomic, weak) id notifyDelegate;
 
     - (void) sendUserToken;
     - (void)sendUserUUID;

@@ -14,25 +14,15 @@
 
 @implementation ViewController
 
-@synthesize mainTableView;
-@synthesize chooseView;
-@synthesize managedObjectContext;
-@synthesize data;
-@synthesize dataUpdater;
-@synthesize refreshButton;
-@synthesize searchData;
-@synthesize isFiltered;
-@synthesize aSearchBar;
-@synthesize tap;
 @synthesize segmentedControl;
+@synthesize refreshButton;
+@synthesize searchController;
+@synthesize moc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        searchData = [[NSMutableArray alloc] init];
-        dataUpdater.fetchDelegate = self;
         
         NSArray *itemArray = [NSArray arrayWithObjects: @"Liste", @"Group", nil];
         segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
@@ -62,29 +52,9 @@
         
         self.navigationController.navigationBar.topItem.title = @"jooblix";
         
-        mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 104, 320, 500)  style:UITableViewStylePlain];
-        mainTableView.delegate = self;
-        mainTableView.dataSource = self;
-
-        
-        aSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-        aSearchBar.delegate = self;
-        
-        mainTableView.tableHeaderView = aSearchBar;
-        
-        UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:aSearchBar contentsController:self];
-        searchController.searchResultsDataSource = self;
-        searchController.searchResultsDelegate = self;
+        searchController = [[SearchableViewController alloc] init];
         searchController.delegate = self;
         
-        
-        
-        tap = [[UITapGestureRecognizer alloc]
-                                       initWithTarget:self
-                                       action:@selector(dismissKeyboard)];
-        
-        
-
     }
     return self;
 }
@@ -93,19 +63,11 @@
     
     [super viewDidLoad];
     [self.view addSubview:segmentedControl];
-    
-    
-    [self fetchData];
-    
-    [self.view addSubview:mainTableView];
-
-    [self.view addGestureRecognizer:tap];
-    
     [self.view setBackgroundColor:[UIColor colorWithRed:(247.0f/255) green:(247.0f/255) blue:(247.0f/255) alpha:1]];
-
-    
+    [self.view addSubview:searchController.view];
     
 }
+
 - (void) changeViewAction:(UISegmentedControl *) segment {
     if (segment.selectedSegmentIndex == 0) {
         NSLog(@"zero");
@@ -115,97 +77,47 @@
 }
 
 - (void) addAction:(id) sender {
-     NSLog(@"ADD");
-    [dataUpdater joinGroup:[NSNumber numberWithInt:1]];
+    NSLog(@"ADD");
 }
 
 - (void) refreshAction:(id) sender {
-    [refreshButton setEnabled:NO];
-    [dataUpdater refreshData:managedObjectContext];
+    NSLog(@"REFRESH");
 }
 
--(void) reactivateRefresh {
-    [refreshButton setEnabled:YES];
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return isFiltered ? searchData.count : data.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jooblixCell"];
-    if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
-    }
-    cell.textLabel.text = isFiltered ? [[searchData objectAtIndex:indexPath.row] name] : [[data objectAtIndex:indexPath.row] name];
-    return cell;
- }
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void) fetchData {
-    NSFetchRequest * fetchRequestGroup = [[NSFetchRequest alloc] init];
-    [fetchRequestGroup setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:managedObjectContext]];
+- (NSArray*) textChange:(NSString*) text onData:(NSArray*) data {
+
+    NSMutableArray *tmpSearched = [[NSMutableArray alloc] init];
+    for (Task *task in data) {
+        NSRange range = [[task name] rangeOfString:text options:NSCaseInsensitiveSearch];
+        if(range.location != NSNotFound)
+            [tmpSearched addObject:task];
+        }
+    return tmpSearched.copy;
+}
+
+- (void) fetchData:(DataUpdater*) dataUpdater {
+    NSLog(@"fetch called");
+    [dataUpdater refreshData:moc];
+}
+
+- (NSArray*) getCoreData {
+
+    NSLog(@"FETCH IT");
     
+    NSFetchRequest * fetchRequestGroup = [[NSFetchRequest alloc] init];
+    [fetchRequestGroup setEntity:[NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc]];
+        
     NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     [fetchRequestGroup setSortDescriptors:[NSArray arrayWithObject:sortByName]];
-
+        
     NSError * error = nil;
-    data = [managedObjectContext executeFetchRequest:fetchRequestGroup error:&error];
+    return [moc executeFetchRequest:fetchRequestGroup error:&error];
     
-    [self dismissKeyboard];
-    isFiltered = NO;
-    
-    [mainTableView reloadData];
-}
-
-#pragma mark - SearchBar Delegate -
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
-    if (searchText.length == 0)
-        isFiltered = NO;
-    else
-        isFiltered = YES;
-    
-    NSMutableArray *tmpSearched = [[NSMutableArray alloc] init];
-    
-    for (Task *task in data) {
-        
-        //we are going for case insensitive search here
-        NSRange range = [[task name] rangeOfString:searchText
-                                      options:NSCaseInsensitiveSearch];
-        
-        if (range.location != NSNotFound)
-            [tmpSearched addObject:task];
-    }
-    
-    searchData = tmpSearched.copy;
-    
-    [self.mainTableView reloadData];
-}
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    NSLog(@"searchBar button clicked");
-}
-
-
-- (void) dismissKeyboard {
-    self.aSearchBar.text = @"";
-    [self.aSearchBar resignFirstResponder];
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [mainTableView setContentOffset:CGPointMake(0, 44)];
 }
 
 

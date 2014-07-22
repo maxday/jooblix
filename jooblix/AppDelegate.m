@@ -31,9 +31,9 @@
     // Override point for customization after application launch.
     
     ViewController *main = [[ViewController alloc] init];
-    [main setDataUpdater:dataUpdater];
+    [main setMoc:[self managedObjectContext]];
+
     
-    [main setManagedObjectContext:[self managedObjectContext]];
     UINavigationController *nav = [[UINavigationController alloc]  initWithRootViewController:main];
     self.window.rootViewController = nav;
     

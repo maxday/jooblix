@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataUpdater.h"
 
 @protocol FetchProtocol <NSObject>
 
-- (void) fetchData;
--(void) reactivateRefresh;
+- (void) fetchData:(DataUpdater*) dataUpdaters;
+- (NSArray*) getCoreData;
+- (NSArray*) textChange:(NSString*) text onData:(NSArray*) data;
+
+
 
 @end

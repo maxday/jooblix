@@ -14,7 +14,7 @@
 
 @implementation DataUpdater
 
-@synthesize fetchDelegate;
+@synthesize notifyDelegate;
 
 - (void)sendUserToken {
     
@@ -38,8 +38,6 @@
 
 
 - (void)sendUserUUID {
-    
-    [self saveToUserDefaults:kCheckUUID andBool:[NSNumber numberWithBool:NO]];
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckUUID]) {
         NSLog(@"UUID already sent");
@@ -72,10 +70,11 @@
 }
 
 - (void) setUUID {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:kCheckToken]) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kUUID]) {
         NSLog(@"UUID already generated");
         return;
     }
+    NSLog(@"not genereated %d", [[NSUserDefaults standardUserDefaults] boolForKey:kUUID]);
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
     NSString* generatedUUID = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
     [self saveToUserDefaults:kUUID andBString:generatedUUID];
@@ -107,16 +106,16 @@
         }
         else {
             NSLog(@"ok j'ai saved");
-            if([fetchDelegate respondsToSelector:@selector(fetchData)])
-                [fetchDelegate fetchData];
+            if([notifyDelegate respondsToSelector:@selector(refreshTable)])
+                [notifyDelegate refreshTable];
         }
-        if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
-            [fetchDelegate reactivateRefresh];
+        //if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
+            //[fetchDelegate reactivateRefresh];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
-            [fetchDelegate reactivateRefresh];
+       // if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
+            //[fetchDelegate reactivateRefresh];
     }];
 }
 

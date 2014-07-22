@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		74FA786DA9A847B790175A7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C816870B4943619F1465B8 /* libPods.a */; };
-		84039A77197E16E200D3183F /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84039A76197E16E200D3183F /* JoinViewController.m */; };
+		84039A77197E16E200D3183F /* SearchableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84039A76197E16E200D3183F /* SearchableViewController.m */; };
 		8430323D197B893200E8FEF7 /* DataUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8430323C197B893200E8FEF7 /* DataUpdater.m */; };
 		84303245197BB72F00E8FEF7 /* eurof35.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84303244197BB72F00E8FEF7 /* eurof35.ttf */; };
 		84303247197BBB5500E8FEF7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84303246197BBB5500E8FEF7 /* CoreData.framework */; };
@@ -43,8 +43,8 @@
 /* Begin PBXFileReference section */
 		3B1BA925A62F42EA913ABE1B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		41C816870B4943619F1465B8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		84039A75197E16E200D3183F /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
-		84039A76197E16E200D3183F /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
+		84039A75197E16E200D3183F /* SearchableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchableViewController.h; sourceTree = "<group>"; };
+		84039A76197E16E200D3183F /* SearchableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchableViewController.m; sourceTree = "<group>"; };
 		8430323B197B893100E8FEF7 /* DataUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUpdater.h; sourceTree = "<group>"; };
 		8430323C197B893200E8FEF7 /* DataUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUpdater.m; sourceTree = "<group>"; };
 		8430323E197B9FF500E8FEF7 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
@@ -74,6 +74,7 @@
 		8451E9771979D2BE00D735BB /* jooblixTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jooblixTests-Info.plist"; sourceTree = "<group>"; };
 		8451E9791979D2BE00D735BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8451E97B1979D2BE00D735BB /* jooblixTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jooblixTests.m; sourceTree = "<group>"; };
+		84B11FB3197E37FA00F02BC4 /* NotifyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotifyProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +144,7 @@
 				8430323B197B893100E8FEF7 /* DataUpdater.h */,
 				8430323C197B893200E8FEF7 /* DataUpdater.m */,
 				8430329E197BE60600E8FEF7 /* FetchProtocol.h */,
+				84B11FB3197E37FA00F02BC4 /* NotifyProtocol.h */,
 				8430323E197B9FF500E8FEF7 /* Constant.h */,
 				84303248197BBB7A00E8FEF7 /* Model.xcdatamodeld */,
 				8430325A197BC12C00E8FEF7 /* Group.h */,
@@ -151,8 +153,8 @@
 				84303258197BC12C00E8FEF7 /* Task.m */,
 				8451E9651979D2BE00D735BB /* ViewController.h */,
 				8451E9661979D2BE00D735BB /* ViewController.m */,
-				84039A75197E16E200D3183F /* JoinViewController.h */,
-				84039A76197E16E200D3183F /* JoinViewController.m */,
+				84039A75197E16E200D3183F /* SearchableViewController.h */,
+				84039A76197E16E200D3183F /* SearchableViewController.m */,
 				8451E9681979D2BE00D735BB /* Images.xcassets */,
 				8451E9571979D2BE00D735BB /* Supporting Files */,
 			);
@@ -330,7 +332,7 @@
 				8451E9611979D2BE00D735BB /* AppDelegate.m in Sources */,
 				8430324A197BBB7A00E8FEF7 /* Model.xcdatamodeld in Sources */,
 				8451E95D1979D2BE00D735BB /* main.m in Sources */,
-				84039A77197E16E200D3183F /* JoinViewController.m in Sources */,
+				84039A77197E16E200D3183F /* SearchableViewController.m in Sources */,
 				8430323D197B893200E8FEF7 /* DataUpdater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

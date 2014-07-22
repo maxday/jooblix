@@ -7,25 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DataUpdater.h"
 #import "FetchProtocol.h"
+#import "SearchableViewController.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, FetchProtocol, UISearchDisplayDelegate, UISearchBarDelegate>
+@interface ViewController : UIViewController <FetchProtocol>
 
-@property (nonatomic, retain) UITableView* mainTableView;
-@property (nonatomic, retain) UISegmentedControl* chooseView;
-@property (nonatomic, retain) DataUpdater* dataUpdater;
 @property (nonatomic, retain) UIBarButtonItem* refreshButton;
-@property (nonatomic, retain) NSMutableArray* searchData;
-@property (nonatomic, retain) NSArray* data;
-@property (nonatomic, retain) UISearchBar *aSearchBar;
-@property (readwrite) BOOL isFiltered;
-
-@property (nonatomic, retain) UITapGestureRecognizer *tap;
-
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) UISegmentedControl *segmentedControl;
-
-
+@property (nonatomic, retain) SearchableViewController* searchController;
+@property (strong, nonatomic) NSManagedObjectContext *moc;
 
 @end
