@@ -28,6 +28,8 @@
 		8451E9721979D2BE00D735BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8451E9541979D2BE00D735BB /* UIKit.framework */; };
 		8451E97A1979D2BE00D735BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8451E9781979D2BE00D735BB /* InfoPlist.strings */; };
 		8451E97C1979D2BE00D735BB /* jooblixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8451E97B1979D2BE00D735BB /* jooblixTests.m */; };
+		84B11FB6197E474100F02BC4 /* JoinGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B11FB5197E474100F02BC4 /* JoinGroupViewController.m */; };
+		84B11FB9197E49E400F02BC4 /* AvailableGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B11FB8197E49E400F02BC4 /* AvailableGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,10 @@
 		8451E9791979D2BE00D735BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8451E97B1979D2BE00D735BB /* jooblixTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jooblixTests.m; sourceTree = "<group>"; };
 		84B11FB3197E37FA00F02BC4 /* NotifyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotifyProtocol.h; sourceTree = "<group>"; };
+		84B11FB4197E474000F02BC4 /* JoinGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupViewController.h; sourceTree = "<group>"; };
+		84B11FB5197E474100F02BC4 /* JoinGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGroupViewController.m; sourceTree = "<group>"; };
+		84B11FB7197E49E400F02BC4 /* AvailableGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableGroup.h; sourceTree = "<group>"; };
+		84B11FB8197E49E400F02BC4 /* AvailableGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,12 +153,16 @@
 				84B11FB3197E37FA00F02BC4 /* NotifyProtocol.h */,
 				8430323E197B9FF500E8FEF7 /* Constant.h */,
 				84303248197BBB7A00E8FEF7 /* Model.xcdatamodeld */,
+				84B11FB7197E49E400F02BC4 /* AvailableGroup.h */,
+				84B11FB8197E49E400F02BC4 /* AvailableGroup.m */,
 				8430325A197BC12C00E8FEF7 /* Group.h */,
 				8430325B197BC12C00E8FEF7 /* Group.m */,
 				84303257197BC12C00E8FEF7 /* Task.h */,
 				84303258197BC12C00E8FEF7 /* Task.m */,
 				8451E9651979D2BE00D735BB /* ViewController.h */,
 				8451E9661979D2BE00D735BB /* ViewController.m */,
+				84B11FB4197E474000F02BC4 /* JoinGroupViewController.h */,
+				84B11FB5197E474100F02BC4 /* JoinGroupViewController.m */,
 				84039A75197E16E200D3183F /* SearchableViewController.h */,
 				84039A76197E16E200D3183F /* SearchableViewController.m */,
 				8451E9681979D2BE00D735BB /* Images.xcassets */,
@@ -332,8 +342,10 @@
 				8451E9611979D2BE00D735BB /* AppDelegate.m in Sources */,
 				8430324A197BBB7A00E8FEF7 /* Model.xcdatamodeld in Sources */,
 				8451E95D1979D2BE00D735BB /* main.m in Sources */,
+				84B11FB6197E474100F02BC4 /* JoinGroupViewController.m in Sources */,
 				84039A77197E16E200D3183F /* SearchableViewController.m in Sources */,
 				8430323D197B893200E8FEF7 /* DataUpdater.m in Sources */,
+				84B11FB9197E49E400F02BC4 /* AvailableGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

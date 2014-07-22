@@ -120,6 +120,43 @@
 }
 
 
+
+- (void) refreshAvailableGroup:(NSManagedObjectContext*) managedObjectContext {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"uuid" : [[NSUserDefaults standardUserDefaults] objectForKey:kUUID]};
+    
+    
+    [self clearAvailableGroup:managedObjectContext];
+    
+    [manager GET:RefreshAvailableGroupApiURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"%@", parameters);
+        NSLog(@"%@", responseObject);
+        
+        [self prepareAvailableGroup:[responseObject objectForKey:@"data"] andContext:managedObjectContext];
+        
+        NSError *error = nil;
+        [managedObjectContext save:&error];
+        if (error != nil) {
+            NSLog(@"Core data error");
+        }
+        else {
+            NSLog(@"ok j'ai saved");
+            if([notifyDelegate respondsToSelector:@selector(refreshTable)])
+                [notifyDelegate refreshTable];
+        }
+        //if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
+        //[fetchDelegate reactivateRefresh];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        // if([fetchDelegate respondsToSelector:@selector(reactivateRefresh)])
+        //[fetchDelegate reactivateRefresh];
+    }];
+}
+
+
 - (void) prepareGroup:(NSArray*) array andContext:(NSManagedObjectContext*) managedObjectContext {
     
     [array enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
@@ -132,6 +169,23 @@
         
         NSSet* set = [NSSet setWithArray:[object objectForKey:@"taskList"]];
         [dict setObject:[self contructSet:set andContext:managedObjectContext] forKey:@"taskList"];
+        [group setValuesForKeysWithDictionary:dict];
+        
+    }];
+    
+}
+
+
+- (void) prepareAvailableGroup:(NSArray*) array andContext:(NSManagedObjectContext*) managedObjectContext {
+    
+    [array enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
+        
+        NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:object];
+        
+        Group *group = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"AvailableGroup"
+                        inManagedObjectContext:managedObjectContext];
+
         [group setValuesForKeysWithDictionary:dict];
         
     }];
@@ -163,6 +217,22 @@
     
     [group enumerateObjectsUsingBlock:^(id singleGroup, NSUInteger idx, BOOL *stop) {
         [managedObjectContext deleteObject:singleGroup];
+    }];
+    
+}
+
+- (void) clearAvailableGroup:(NSManagedObjectContext*) managedObjectContext {
+    
+    NSFetchRequest * fetchRequestGroup = [[NSFetchRequest alloc] init];
+    [fetchRequestGroup setEntity:[NSEntityDescription entityForName:@"AvailableGroup" inManagedObjectContext:managedObjectContext]];
+    [fetchRequestGroup setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError * error = nil;
+    NSArray * group = [managedObjectContext executeFetchRequest:fetchRequestGroup error:&error];
+    
+    
+    [group enumerateObjectsUsingBlock:^(id singleAvailableGroup, NSUInteger idx, BOOL *stop) {
+        [managedObjectContext deleteObject:singleAvailableGroup];
     }];
     
 }

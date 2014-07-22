@@ -17,6 +17,7 @@
     - (void)sendUserUUID;
     - (void) setUUID;
     - (void) refreshData:(NSManagedObjectContext*) managedObjectContext;
+    - (void) refreshAvailableGroup:(NSManagedObjectContext*) managedObjectContext;
     - (void) joinGroup:(NSNumber*) groupId;
 
 @end

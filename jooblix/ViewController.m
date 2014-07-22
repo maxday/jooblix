@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JoinGroupViewController.h"
 #import "Task.h"
 
 @interface ViewController ()
@@ -38,19 +39,6 @@
         self.navigationItem.rightBarButtonItem = addButton;
         
         
-        CGFloat verticalOffset = 3;
-        
-        [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
-        
-        UIFont *customFont = [UIFont fontWithName:@"Eurofurencelight" size:40];
-        
-        NSDictionary * navBarTitleTextAttributes =
-        @{NSForegroundColorAttributeName : [UIColor blackColor],
-          NSFontAttributeName            : customFont };
-        
-        [[UINavigationBar appearance] setTitleTextAttributes:navBarTitleTextAttributes];
-        
-        self.navigationController.navigationBar.topItem.title = @"jooblix";
         
         searchController = [[SearchableViewController alloc] init];
         searchController.delegate = self;
@@ -66,6 +54,22 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:(247.0f/255) green:(247.0f/255) blue:(247.0f/255) alpha:1]];
     [self.view addSubview:searchController.view];
     
+    
+    CGFloat verticalOffset = 3;
+    
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
+    
+    UIFont *customFont = [UIFont fontWithName:@"Eurofurencelight" size:40];
+    
+    NSDictionary * navBarTitleTextAttributes =
+    @{NSForegroundColorAttributeName : [UIColor blackColor],
+      NSFontAttributeName            : customFont };
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navBarTitleTextAttributes];
+    
+    self.navigationController.navigationBar.topItem.title = @"jooblix";
+
+    
 }
 
 - (void) changeViewAction:(UISegmentedControl *) segment {
@@ -78,6 +82,12 @@
 
 - (void) addAction:(id) sender {
     NSLog(@"ADD");
+    
+    JoinGroupViewController* joinController = [[JoinGroupViewController alloc] init];
+    [joinController setMoc:moc];
+    [self.navigationController pushViewController:joinController animated:YES];
+    
+    
 }
 
 - (void) refreshAction:(id) sender {

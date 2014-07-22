@@ -15,4 +15,5 @@
 #define RefreshApiURL @"http://maxday.fr/jooblix/refresh.php"
 #define JoinGroupApiURL @"http://maxday.fr/jooblix/join.php"
 #define ListGroupApiURL @"http://maxday.fr/jooblix/list.php"
+#define RefreshAvailableGroupApiURL @"http://maxday.fr/jooblix/availableGroup.php"
 
