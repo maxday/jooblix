@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSNumber * groupId;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSString * color;
+@property (nonatomic, retain) NSNumber * colorId;
 @property (nonatomic, retain) NSSet *taskList;
 @end
 

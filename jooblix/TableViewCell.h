@@ -22,5 +22,6 @@
 
 @property(nonatomic, retain) UIView* bottomBorder;
 
+- (void) setColor:(NSNumber*) colorId;
 
 @end

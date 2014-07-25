@@ -16,5 +16,8 @@
 - (NSArray*) textChange:(NSString*) text onData:(NSArray*) data;
 
 
+- (UITableViewCell*) setUpCellInTableView:(UITableView*)tableView andData:(id)data;
+
+
 
 @end

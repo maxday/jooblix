@@ -118,6 +118,10 @@
     return self;
 }
 
+- (void) setColor:(NSNumber*) colorId {
+    NSLog(@"colorId");
+}
+
 - (void)awakeFromNib
 {
     // Initialization code
@@ -129,5 +133,6 @@
 
     // Configure the view for the selected state
 }
+
 
 @end

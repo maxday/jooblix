@@ -15,7 +15,7 @@
 @dynamic groupId;
 @dynamic name;
 @dynamic type;
-@dynamic color;
+@dynamic colorId;
 @dynamic taskList;
 
 @end

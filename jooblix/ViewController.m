@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "JoinGroupViewController.h"
 #import "Task.h"
+#import "TableViewCell.h"
 
 @interface ViewController ()
 @end
@@ -140,6 +141,30 @@
     NSError * error = nil;
     return [moc executeFetchRequest:fetchRequestGroup error:&error];
     
+}
+
+- (UITableViewCell*) setUpCellInTableView:(UITableView *)tableView andData:(id)data {
+    
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jooblixCell"];
+    if (nil == cell) {
+        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
+    }
+    
+    Task* currentTask = (Task*) data;
+    
+    // [cell.date setText:[currentTask date]];
+    [cell.time setText:[[currentTask time] substringToIndex:5]];
+    [cell.taskTitle setText:[currentTask name]];
+    //[cell setColor:[[currentTask groupId] colorId]];
+    
+    
+    
+    //cell.textLabel.text = isFiltered ? [[searchData objectAtIndex:indexPath.row] name] : [[data objectAtIndex:indexPath.row] name];
+    //cell.textLabel.text = @"toto";
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
 }
 
 

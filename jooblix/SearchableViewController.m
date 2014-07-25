@@ -8,6 +8,8 @@
 
 #import "SearchableViewController.h"
 #import "TableViewCell.h"
+#import "Task.h"
+#import "Group.h"
 
 @interface SearchableViewController ()
 
@@ -63,8 +65,7 @@
     [aTableView setSeparatorInset:UIEdgeInsetsZero];
     
     [self.view addSubview:aTableView];
-    
-    NSLog(@"ici delegate = %@", [self.delegate debugDescription]);
+
     [self.delegate fetchData:dataUpdater];
 }
 
@@ -79,20 +80,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return isFiltered ? searchData.count : data.count;
-    return 3;
+    return isFiltered ? searchData.count : data.count;
+    //return 3;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jooblixCell"];
-    if (nil == cell) {
-        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
-    }
-    //cell.textLabel.text = isFiltered ? [[searchData objectAtIndex:indexPath.row] name] : [[data objectAtIndex:indexPath.row] name];
-    //cell.textLabel.text = @"toto";
-    return cell;
+    if(isFiltered)
+        return [self.delegate setUpCellInTableView:tableView andData:[searchData objectAtIndex:indexPath.row]];
+    return [self.delegate setUpCellInTableView:tableView andData:[data objectAtIndex:indexPath.row]];
 }
 
 - (void) dismissKeyboard {

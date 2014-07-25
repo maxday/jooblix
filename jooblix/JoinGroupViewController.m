@@ -8,6 +8,7 @@
 
 #import "JoinGroupViewController.h"
 #import "Group.h"
+#import "TableViewCell.h"
 
 @interface JoinGroupViewController ()
 
@@ -68,7 +69,7 @@
 }
 
 - (void) fetchData:(DataUpdater*) dataUpdater {
-    NSLog(@"fetch called");
+    NSLog(@"fetch join called");
     [dataUpdater refreshAvailableGroup:moc];
 }
 
@@ -85,6 +86,23 @@
     NSError * error = nil;
     return [moc executeFetchRequest:fetchRequestGroup error:&error];
     
+}
+
+
+- (UITableViewCell*) setUpCellInTableView:(UITableView *)tableView andData:(id)data {
+    
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jooblixCell"];
+    if (nil == cell) {
+        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
+    }
+    
+    Group* currentGroup = (Group*) data;
+    
+
+    [cell.taskTitle setText:[currentGroup name]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
 }
 
 
