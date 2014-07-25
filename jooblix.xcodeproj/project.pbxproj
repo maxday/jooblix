@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		74FA786DA9A847B790175A7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C816870B4943619F1465B8 /* libPods.a */; };
 		84039A77197E16E200D3183F /* SearchableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84039A76197E16E200D3183F /* SearchableViewController.m */; };
+		8410CD9E1981F0E9000C62C1 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410CD9D1981F0E9000C62C1 /* TableViewCell.m */; };
+		8410CDA21981F26B000C62C1 /* jooblix-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 8410CD9F1981F26B000C62C1 /* jooblix-book.png */; };
+		8410CDA31981F26B000C62C1 /* jooblix-cal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8410CDA01981F26B000C62C1 /* jooblix-cal.png */; };
+		8410CDA41981F26B000C62C1 /* jooblix-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 8410CDA11981F26B000C62C1 /* jooblix-clock.png */; };
+		8410CDA71981F815000C62C1 /* J2OUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410CDA61981F815000C62C1 /* J2OUILabel.m */; };
 		8430323D197B893200E8FEF7 /* DataUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8430323C197B893200E8FEF7 /* DataUpdater.m */; };
 		84303245197BB72F00E8FEF7 /* eurof35.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84303244197BB72F00E8FEF7 /* eurof35.ttf */; };
 		84303247197BBB5500E8FEF7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84303246197BBB5500E8FEF7 /* CoreData.framework */; };
@@ -47,6 +52,13 @@
 		41C816870B4943619F1465B8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84039A75197E16E200D3183F /* SearchableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchableViewController.h; sourceTree = "<group>"; };
 		84039A76197E16E200D3183F /* SearchableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchableViewController.m; sourceTree = "<group>"; };
+		8410CD9C1981F0E9000C62C1 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		8410CD9D1981F0E9000C62C1 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		8410CD9F1981F26B000C62C1 /* jooblix-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jooblix-book.png"; sourceTree = "<group>"; };
+		8410CDA01981F26B000C62C1 /* jooblix-cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jooblix-cal.png"; sourceTree = "<group>"; };
+		8410CDA11981F26B000C62C1 /* jooblix-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jooblix-clock.png"; sourceTree = "<group>"; };
+		8410CDA51981F815000C62C1 /* J2OUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = J2OUILabel.h; sourceTree = "<group>"; };
+		8410CDA61981F815000C62C1 /* J2OUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = J2OUILabel.m; sourceTree = "<group>"; };
 		8430323B197B893100E8FEF7 /* DataUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataUpdater.h; sourceTree = "<group>"; };
 		8430323C197B893200E8FEF7 /* DataUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataUpdater.m; sourceTree = "<group>"; };
 		8430323E197B9FF500E8FEF7 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
@@ -145,6 +157,9 @@
 		8451E9561979D2BE00D735BB /* jooblix */ = {
 			isa = PBXGroup;
 			children = (
+				8410CD9F1981F26B000C62C1 /* jooblix-book.png */,
+				8410CDA01981F26B000C62C1 /* jooblix-cal.png */,
+				8410CDA11981F26B000C62C1 /* jooblix-clock.png */,
 				8451E95F1979D2BE00D735BB /* AppDelegate.h */,
 				8451E9601979D2BE00D735BB /* AppDelegate.m */,
 				8430323B197B893100E8FEF7 /* DataUpdater.h */,
@@ -165,6 +180,10 @@
 				84B11FB5197E474100F02BC4 /* JoinGroupViewController.m */,
 				84039A75197E16E200D3183F /* SearchableViewController.h */,
 				84039A76197E16E200D3183F /* SearchableViewController.m */,
+				8410CD9C1981F0E9000C62C1 /* TableViewCell.h */,
+				8410CD9D1981F0E9000C62C1 /* TableViewCell.m */,
+				8410CDA51981F815000C62C1 /* J2OUILabel.h */,
+				8410CDA61981F815000C62C1 /* J2OUILabel.m */,
 				8451E9681979D2BE00D735BB /* Images.xcassets */,
 				8451E9571979D2BE00D735BB /* Supporting Files */,
 			);
@@ -283,7 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84303245197BB72F00E8FEF7 /* eurof35.ttf in Resources */,
+				8410CDA31981F26B000C62C1 /* jooblix-cal.png in Resources */,
+				8410CDA41981F26B000C62C1 /* jooblix-clock.png in Resources */,
 				8451E9691979D2BE00D735BB /* Images.xcassets in Resources */,
+				8410CDA21981F26B000C62C1 /* jooblix-book.png in Resources */,
 				8451E95B1979D2BE00D735BB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,7 +366,9 @@
 				8451E95D1979D2BE00D735BB /* main.m in Sources */,
 				84B11FB6197E474100F02BC4 /* JoinGroupViewController.m in Sources */,
 				84039A77197E16E200D3183F /* SearchableViewController.m in Sources */,
+				8410CDA71981F815000C62C1 /* J2OUILabel.m in Sources */,
 				8430323D197B893200E8FEF7 /* DataUpdater.m in Sources */,
+				8410CD9E1981F0E9000C62C1 /* TableViewCell.m in Sources */,
 				84B11FB9197E49E400F02BC4 /* AvailableGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

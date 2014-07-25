@@ -13,7 +13,6 @@
 @interface ViewController : UIViewController <FetchProtocol>
 
 @property (nonatomic, retain) UIBarButtonItem* refreshButton;
-@property (nonatomic, retain) UISegmentedControl *segmentedControl;
 @property (nonatomic, retain) SearchableViewController* searchController;
 @property (strong, nonatomic) NSManagedObjectContext *moc;
 

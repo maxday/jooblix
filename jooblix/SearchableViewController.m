@@ -7,6 +7,7 @@
 //
 
 #import "SearchableViewController.h"
+#import "TableViewCell.h"
 
 @interface SearchableViewController ()
 
@@ -26,7 +27,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 104, 320, 500)  style:UITableViewStylePlain];
+        aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 320, 500)  style:UITableViewStylePlain];
         aTableView.delegate = self;
         aTableView.dataSource = self;
         
@@ -35,6 +36,8 @@
         aSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         aSearchBar.delegate = self;
         
+        //UIColor* backgroundColor = [UIColor colorWithRed:0.941 green:0.949 blue:0.961 alpha:1];
+        //aSearchBar.barTintColor = backgroundColor;
         aTableView.tableHeaderView = aSearchBar;
         
         UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:aSearchBar contentsController:self];
@@ -56,6 +59,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [aTableView setSeparatorInset:UIEdgeInsetsZero];
+    
     [self.view addSubview:aTableView];
     
     NSLog(@"ici delegate = %@", [self.delegate debugDescription]);
@@ -73,17 +79,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return isFiltered ? searchData.count : data.count;
+    //return isFiltered ? searchData.count : data.count;
+    return 3;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jooblixCell"];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"jooblixCell"];
     if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
+        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"jooblixCell"];
     }
-    cell.textLabel.text = isFiltered ? [[searchData objectAtIndex:indexPath.row] name] : [[data objectAtIndex:indexPath.row] name];
+    //cell.textLabel.text = isFiltered ? [[searchData objectAtIndex:indexPath.row] name] : [[data objectAtIndex:indexPath.row] name];
+    //cell.textLabel.text = @"toto";
     return cell;
 }
 
@@ -113,5 +121,8 @@
     [self.aTableView reloadData];
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 88.f;
+}
 
 @end

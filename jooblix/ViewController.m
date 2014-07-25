@@ -15,7 +15,6 @@
 
 @implementation ViewController
 
-@synthesize segmentedControl;
 @synthesize refreshButton;
 @synthesize searchController;
 @synthesize moc;
@@ -25,18 +24,27 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        NSArray *itemArray = [NSArray arrayWithObjects: @"Liste", @"Group", nil];
-        segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-        segmentedControl.frame = CGRectMake(60, 74, 200, 20);
-        [segmentedControl addTarget:self action:@selector(changeViewAction:) forControlEvents: UIControlEventValueChanged];
-        segmentedControl.selectedSegmentIndex = 1;
+        UIColor* blueGreenColor = [UIColor colorWithRed:0.216 green:0.737 blue:0.608 alpha:1];
         
         refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction:)];
         
-        UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
+        [refreshButton setTintColor:blueGreenColor];
         
-        self.navigationItem.leftBarButtonItem = refreshButton;
-        self.navigationItem.rightBarButtonItem = addButton;
+        
+        
+        UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
+        [addButton setTintColor:blueGreenColor];
+        
+        //UIView* item = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+        UISwitch* listOrGroup = [[UISwitch alloc] init];
+        [listOrGroup setTintColor:blueGreenColor];
+        [listOrGroup setOnTintColor:blueGreenColor];
+        //[item addSubview:listOrGroup];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:listOrGroup];
+        //self.navigationItem.leftBarButtonItem = refreshButton;
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton, refreshButton, nil];
+        
         
         
         
@@ -50,7 +58,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    [self.view addSubview:segmentedControl];
+
     [self.view setBackgroundColor:[UIColor colorWithRed:(247.0f/255) green:(247.0f/255) blue:(247.0f/255) alpha:1]];
     [self.view addSubview:searchController.view];
     
@@ -59,10 +67,14 @@
     
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:verticalOffset forBarMetrics:UIBarMetricsDefault];
     
+    UIColor* barColor = [UIColor colorWithRed:0.18 green:0.282 blue:0.353 alpha:1];
+    [[UINavigationBar appearance] setBarTintColor:barColor];
+   // [[UINavigationBar appearance] setTranslucent:NO];
+    
     UIFont *customFont = [UIFont fontWithName:@"Eurofurencelight" size:40];
     
     NSDictionary * navBarTitleTextAttributes =
-    @{NSForegroundColorAttributeName : [UIColor blackColor],
+    @{NSForegroundColorAttributeName : [UIColor whiteColor],
       NSFontAttributeName            : customFont };
     
     [[UINavigationBar appearance] setTitleTextAttributes:navBarTitleTextAttributes];
